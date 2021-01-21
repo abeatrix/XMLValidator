@@ -1,0 +1,69 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="consumer">
+        <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="consumerId" type="xs:positiveInteger"/>
+                    <xs:element name="consumerName" type="xs:string"/>
+                    <xs:element name="debts" type="debts"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="debts" minOccurs="1" maxOccurs="100">
+        <xs:sequence>
+            <xs:element name="bankAccount" type="accountInfo"/>
+            <xs:element name="creditCardAccount" type="creditCardAccountInfo"/>
+            <xs:element name="mortgageAccount" type="accountInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="basicAccountInfo">
+        <xs:sequence>
+            <xs:element name="accountNumber" type="xs:positiveInteger"/>
+            <xs:element name="amount" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="accountInfo">
+        <xs:complexContent>
+            <xs:extension base="basicAccountInfo">
+                <xs:sequence>
+                    <xs:element name="description" type="loanDescription"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="creditCardAccountInfo">
+        <xs:complexContent>
+            <xs:extension base="basicAccountInfo">
+                <xs:sequence>
+                    <xs:element name="description" type="ccDescription"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="loanDescription">
+        <xs:sequence>
+            <xs:element name="accountType" type="xs:string"/>
+            <xs:element name="lenderName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ccDescription">
+        <xs:sequence>
+            <xs:element name="accountType" type="xs:string"/>
+            <xs:element name="creditCardNumber" type="xs:positiveInteger"/>
+            <xs:element name="expirationDate" type="xs:positiveInteger"/>
+            <xs:element name="issuer" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>
