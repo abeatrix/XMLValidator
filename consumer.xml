@@ -1,7 +1,3 @@
-<note xmlns="."
-xmlns:xsi="./XMLSchema-instance"
-xsi:schemaLocation="./ consumer.xsd">
-
 <consumer>
     <consumerId>3562662382393</consumerId>
     <consumerName> Debt Ridden </consumerName>
