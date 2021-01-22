@@ -11,7 +11,7 @@
     </xs:element>
 
 
-    <xs:complexType name="debts" minOccurs="1" maxOccurs="100">
+    <xs:complexType name="debts">
         <xs:sequence>
             <xs:element name="bankAccount" type="accountInfo"/>
             <xs:element name="creditCardAccount" type="creditCardAccountInfo"/>

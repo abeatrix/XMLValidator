@@ -7,7 +7,6 @@
 <xs:element name="amount" type="xs:positiveInteger"/>
 <xs:element name="accountType" type="xs:string"/>
 <xs:element name="lenderName" type="xs:string"/>
-<xs:element name="accountType" type="xs:string"/>
 <xs:element name="creditCardNumber" type="xs:positiveInteger"/>
 <xs:element name="expirationDate" type="xs:positiveInteger"/>
 <xs:element name="issuer" type="xs:string"/>
@@ -24,7 +23,7 @@
 </xs:element>
 
 <!-- definition of complex elements -->
-<xs:complexType name="debts" minOccurs="1" maxOccurs="100">
+<xs:complexType name="debts">
     <xs:sequence>
         <xs:element name="bankAccount" type="accountInfo" minOccurs="0"/>
         <xs:element name="creditCardAccount" type="accountInfo" minOccurs="0"/>
@@ -32,39 +31,22 @@
     </xs:sequence>
 </xs:complexType>
 
-
-<xs:complexType name="basicAccountInfo">
+<xs:complexType name="accountInfo">
     <xs:sequence>
         <xs:element ref="accountNumber"/>
         <xs:element ref="amount"/>
+        <xs:element name="description" type="description"/>
     </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="accountInfo">
-    <xs:complexContent>
-        <xs:extension base="basicAccountInfo">
-            <xs:choice>
-                <xs:element name="description" type="loanDescription"/>
-                <xs:element name="description" type="ccDescription"/>
-            </xs:choice>
-        </xs:extension>
-    </xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="loanDescription">
-    <xs:sequence>
-        <xs:element ref="accountType"/>
-        <xs:element ref="lenderName"/>
-    </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ccDescription">
-    <xs:sequence>
-        <xs:element ref="accountType"/>
-        <xs:element ref="creditCardNumber"/>
-        <xs:element ref="expirationDate"/>
-        <xs:element ref="issuer"/>
-    </xs:sequence>
+<xs:complexType name="description">
+    <xs:all>
+        <xs:element ref="accountType" minOccurs="1"/>
+        <xs:element ref="lenderName" minOccurs="0"/>
+        <xs:element ref="creditCardNumber" minOccurs="0"/>
+        <xs:element ref="expirationDate" minOccurs="0"/>
+        <xs:element ref="issuer" minOccurs="0"/>
+    </xs:all>
 </xs:complexType>
 
 
