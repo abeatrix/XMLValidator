@@ -3,8 +3,8 @@
 Goal: Design a system that read XML files then process the files before feeding the output to another reporting system.
 
 ## Requirements:
-- [ ] One record at a time
-- [ ] Each record contains all accounts for a single user.
+- [x] One record at a time
+- [x] Each record contains all accounts for a single user.
 - [x] max 100 accounts per user
 - [ ] max 100,000 user xml files per day
 - [ ] REST service handle 100 messages max
@@ -12,7 +12,7 @@ Goal: Design a system that read XML files then process the files before feeding 
 - [ ] handle single batch file with user records via FTP at 2am daily
 - [ ] combin all records into one single file at 1am daily
 - [x] do not print account numbers in output
-- [ ] validation
+- [x] validation
 - [ ] HA framework
 
 ## Conditions

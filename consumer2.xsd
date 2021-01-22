@@ -17,7 +17,7 @@
             <xs:sequence>
                 <xs:element ref="consumerId"/>
                 <xs:element ref="consumerName"/>
-                <xs:element name="debts" type="debts"/>
+                <xs:element name="debts" type="debts" maxOccurs="100"/>
             </xs:sequence>
     </xs:complexType>
 </xs:element>
