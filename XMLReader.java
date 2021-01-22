@@ -7,9 +7,9 @@ public class XMLReader{
 	public static void main(String argv[]) throws Exception {
         //
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        InputStream in = new FileInputStream("./consumer.xml");
+        InputStream xmlFile = new FileInputStream("./consumer.xml");
 
-        XMLStreamReader streamReader = inputFactory.createXMLStreamReader(in);
+        XMLStreamReader streamReader = inputFactory.createXMLStreamReader(xmlFile);
 
         System.out.println("Description:");
         while (streamReader.hasNext()) {
