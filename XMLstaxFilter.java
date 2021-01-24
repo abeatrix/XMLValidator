@@ -12,7 +12,7 @@ public class XMLstaxFilter{
             XMLStreamReader xmlFile = XMLInputFactory.newInstance().createXMLStreamReader(new FileInputStream("consumer.xml"));
 
             SchemaFactory sFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = sFactory.newSchema(new File("consumer2.xsd"));
+            Schema schema = sFactory.newSchema(new File("consumer.xsd"));
 
             Validator validator = schema.newValidator();
             validator.validate(new StAXSource(xmlFile));
