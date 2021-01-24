@@ -49,18 +49,18 @@ public class XMLDomReader {
                         Element des = (Element)description.item(0);
                         String accountType = des.getElementsByTagName("accountType").item(0).getTextContent();
                         String lenderName = des.getElementsByTagName("lenderName").item(0).getTextContent();
-                        String output = name+": bankAccountType: "+accountType+", lenderName: "+lenderName+", amount: "+amount;
+                        String output = "\n"+name+": "+": bankAccountType: "+accountType+", lenderName: "+lenderName+", amount: "+amount;
                         printer.write(output);
                     } else {
                         Element des = (Element)description.item(0);
                         String accountType = des.getElementsByTagName("accountType").item(0).getTextContent();
                         String lenderName = des.getElementsByTagName("lenderName").item(0).getTextContent();
-                        String output = name+": lenderName: "+lenderName+", accountType: "+accountType+", amount: "+amount;
+                        String output = "\n"+name+": "+": lenderName: "+lenderName+", accountType: "+accountType+", amount: "+amount;
                         printer.write(output);
                     }
                 }
             }
-            printer.flush();
+            printer.close();
 
         } catch (Exception error) {
             error.printStackTrace();

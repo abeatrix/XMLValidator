@@ -5,7 +5,7 @@ import javax.xml.transform.stax.StAXSource;
 import javax.xml.validation.*;
 import javax.xml.XMLConstants;
 
-public class XMLstaxFilter{
+public class XMLstaxValidator{
     public static void main (String args[]) throws Exception {
         try {
 

@@ -1,5 +1,3 @@
-@XmlRootElement(name = "consumer")
-
 public class Consumer {
     private Integer consumerId;
     private String consumerName;
@@ -17,7 +15,7 @@ public class Consumer {
     public Integer getConsumerId() {
         return consumerId;
     }
-    @XmlElement(name = "consumerId")
+
     public void setConsumerId(Integer consumerId){
         this.consumerId = consumerId;
     }
@@ -25,7 +23,7 @@ public class Consumer {
     public String getConsumerName() {
         return consumerName;
     }
-    @XmlElement(name = "consumerName")
+
     public void setConsumerName(String consumerName){
         this.consumerName = consumerName;
     }
@@ -34,8 +32,6 @@ public class Consumer {
         return debts;
     }
 
-    @XmlElementWrapper(name = "debts")
-    @XmlElement(name = "debts")
     public void setDebts(String[] debts){
         this.debts = debts;
     }
