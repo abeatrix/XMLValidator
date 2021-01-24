@@ -17,17 +17,19 @@
             <xs:sequence>
                 <xs:element ref="consumerId"/>
                 <xs:element ref="consumerName"/>
-                <xs:element name="debts" type="debts" minOccurs="1" maxOccurs="100"/>
+                <xs:element name="debts" type="debts"/>
             </xs:sequence>
     </xs:complexType>
 </xs:element>
 
-<!-- definition of complex elements -->
+<!-- definition of complex elements - add new account type here-->
 <xs:complexType name="debts">
     <xs:sequence>
+    <xs:choice minOccurs="1" maxOccurs="100">
         <xs:element name="bankAccount" type="accountInfo" minOccurs="0"/>
         <xs:element name="creditCardAccount" type="accountInfo" minOccurs="0"/>
         <xs:element name="mortgageAccount" type="accountInfo" minOccurs="0"/>
+    </xs:choice>
     </xs:sequence>
 </xs:complexType>
 

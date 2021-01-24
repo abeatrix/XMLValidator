@@ -28,5 +28,23 @@
                 <lenderName>Citi</lenderName>
             </description>
         </mortgageAccount>
+        <creditCardAccount>
+            <accountNumber>5556876547</accountNumber>
+            <amount>3354</amount>
+            <description>
+                <accountType>CREDITCARD</accountType>
+                <creditCardNumber>44852359468955556</creditCardNumber>
+                <expirationDate>20221212</expirationDate>
+                <issuer>Citi</issuer>
+            </description>
+        </creditCardAccount>
+        <mortgageAccount>
+            <accountNumber>123895769767</accountNumber>
+            <amount>125460</amount>
+            <description>
+                <accountType>Fixed-30-year</accountType>
+                <lenderName>Citi</lenderName>
+            </description>
+        </mortgageAccount>
     </debts>
 </consumer>
