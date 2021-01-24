@@ -14,7 +14,7 @@ public class XMLDomReader {
         try {
 
             //read xml file
-            File xmlFile = new File("./consumer.xml");
+            File xmlFile = new File("./consumers.xml");
             BufferedWriter printer = new BufferedWriter( new FileWriter("./output.xml", true)); // set true to append
             DocumentBuilderFactory xmlFactory = DocumentBuilderFactory.newInstance();
             xmlFactory.setIgnoringElementContentWhitespace(true);

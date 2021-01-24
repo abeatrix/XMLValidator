@@ -1,24 +1,27 @@
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.BufferedWriter;
+//import java.io.File;
 import java.io.FileWriter;
 import javax.xml.stream.*;
 
 public class XMLReader{
 
-	public static void main(String argv[]) throws Exception {
+	public static void main(String xmlFilePath) throws Exception {
         //input
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        InputStream xmlFile = new FileInputStream("./consumer.xml");
+        InputStream xmlFile = new FileInputStream(xmlFilePath);
         XMLStreamReader streamReader = inputFactory.createXMLStreamReader(xmlFile);
 
         //output
         BufferedWriter printer = new BufferedWriter( new FileWriter("./output.xml", true)); // set true to append
 
-        printer.write("Description:");
-        printer.newLine();
         while (streamReader.hasNext()) {
             if (streamReader.isStartElement()) {
+                if (streamReader.getLocalName().equals("consumer")){
+                    printer.write("Description:");
+                    printer.newLine();
+                }
                 switch (streamReader.getLocalName()) {
                 case "bankAccount": {
                     streamReader.nextTag(); // Advance to "accountNumber" element
@@ -73,6 +76,6 @@ public class XMLReader{
             }
             streamReader.next();
         }
-        printer.flush();
+        printer.close();
     }
 }
