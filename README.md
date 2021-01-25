@@ -62,7 +62,7 @@ Goal: Design a system that read XML files then process the files before feeding 
 
 <img src="./images/flowchart.jpg" />
 
-```I have worked at a reverse mortgage firm before as an auditor, where I was responsible for auditing loan documents in the company's system before inputting required info in an excel file which is to be sent at 4pm daily to the broker. The process of designing this system had me realize how my experience is so relatable to the design process of this system and made me understand why the excel document I generated daily was needed. And this is the reason I believe processing the data at a certain time of the day instead of every time it is received will increase the performance on the system as it limits the amount of time the system has to process and read and write the data, restricting the amount of data in and out throughout the process, and this is why I chose AWS Batch service as they would process the data depends on the size of the data before assigning processing power and memory to run the job, as we do not know how many files will we receive per day except the maximum amount. Moreover, having the system to be run on cloud provides a solution with high availability, scalability, flexibility, stability, and accessibility for both the company and clients. The whole process is automated and can be done serverless with AWS cloud services, from client authentication to data processing. It is flexible and scalable because you can assign and adjust processing power according to the data volume. You can create different programs to run on specific files (e.g. single record vs batch record). You can also switch to processing the data whenever it is received anytime, by changing the setting in AWS Batch. You can also chooes to have the processed files deleted automatically to save memory in storage.```
+```I have worked at a reverse mortgage firm before as an auditor, where I was responsible for auditing loan documents in the company's system before inputting required info in an excel file which is to be sent at 4pm daily to the broker. The process of designing this system had me realize how my experience is so relatable to the design process of this system and made me understand why the excel document I generated daily was needed. And this is the reason I believe processing the data at a certain time of the day instead of every time it is received will increase the performance on the system as it limits the amount of time the system has to process and read and write the data, restricting the amount of data in and out throughout the process, and this is why I chose AWS Batch service as they would process the data depends on the size of the data before assigning processing power and memory to run the job, as we do not know how many files will we receive per day except the maximum amount. Moreover, having the system to be run on cloud provides a solution with high availability, scalability, flexibility, stability, and accessibility for both the company and clients. The whole process is automated and can be done serverless with AWS cloud services, from client authentication to data processing. It is flexible and scalable because you can assign and adjust processing power according to the data volume. You can create different programs to run on specific files (e.g. single record vs batch record). You can also switch to processing the data whenever it is received anytime, by changing the setting in AWS Batch. You can also choose to have the processed files deleted automatically to save memory in storage.```
 
 ## Part II
 1. describe the code used to parse and process the data
@@ -72,9 +72,9 @@ Goal: Design a system that read XML files then process the files before feeding 
     1. XMLReader.java uses StAX to parse the data by going through the xml file from top to bottom
     1. then it will print the data in the assigned format to the output.xml file
 1. UML to describe your class hierarchy and design patterns
-    1. please refer to the picture below for UML of class hierarchy
+    1. please refer to the picture below for UML and flowchart
 1. advantages
-    1. scalability
+    1. high scalability
     1. using schema to validate incoming data
     1. does not include invaliad records in output file
     1. schema is flexible, allows addition aggregates in the future using xs:all tag
@@ -82,7 +82,7 @@ Goal: Design a system that read XML files then process the files before feeding 
 1. disadvantages
     1. require a differnt schema (for validation) to run batch file when they have different root tag(we can set the job defination in AWS Batch to run a different program / schema when a batch file comes in at 2am)
 1. reason of choice
-    1. I've tried using StAX and JAXP for parsing and processing the data, and found StAX is more suitable in this case as it's faster when the data has passed the validation of the schema already before it was being parsed. The same program can be used to run both the single and batch files as it loops through the file from top to bottom before printing the necessary info to the output file, without the need of searching for a certain keyword.
+    1. I've tried using StAX and JAXP for parsing and processing the data, and found StAX is more suitable in this case as it's faster when the data has already been validated using the schema already. Moreover, the same program can be used to run both individual file and the batch file as it loops through the file from top to bottom before printing the necessary info to the output file, without the need of searching for a certain keyword.
 <img src="./images/flowchart2.jpg" />
 <img src="./images/UML.jpg" />
 
