@@ -9,13 +9,13 @@ public class XMLstaxValidator{
     public static void main (String args[]) throws Exception {
         try {
             // declare XML & XSD file path
-            String xmlFilePath = "consumer.xml";
-            String singleFileSchema = "consumer.xsd";
-            //String batchFileSchema = "consumers.xsd";
+            String xmlFilePath = "consumers.xml";
+            //String schemaFilePath = "consumer.xsd";
+            String schemaFilePath = "consumers.xsd";
 
             XMLStreamReader xmlFile = XMLInputFactory.newInstance().createXMLStreamReader(new FileInputStream(xmlFilePath));
             SchemaFactory sFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = sFactory.newSchema(new File(singleFileSchema));
+            Schema schema = sFactory.newSchema(new File(schemaFilePath));
 
             Validator validator = schema.newValidator();
             validator.validate(new StAXSource(xmlFile));
