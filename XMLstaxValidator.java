@@ -7,12 +7,12 @@ import javax.xml.XMLConstants;
 
 public class XMLstaxValidator{
     public static void main (String args[]) throws Exception {
-        try {
-            // declare XML & XSD file path
-            String xmlFilePath = "consumers.xml";
-            //String schemaFilePath = "consumer.xsd";
-            String schemaFilePath = "consumers.xsd";
+        // declare XML & XSD file path
+        String xmlFilePath = "consumers.xml";
+        //String schemaFilePath = "consumer.xsd";
+        String schemaFilePath = "consumers.xsd";
 
+        try {
             XMLStreamReader xmlFile = XMLInputFactory.newInstance().createXMLStreamReader(new FileInputStream(xmlFilePath));
             SchemaFactory sFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = sFactory.newSchema(new File(schemaFilePath));

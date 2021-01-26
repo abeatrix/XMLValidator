@@ -76,6 +76,7 @@ public class XMLReader{
             }
             streamReader.next();
         }
+        printer.flush();
         printer.close();
     }
 }
