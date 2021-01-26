@@ -1,6 +1,6 @@
 # XMLValidator
 
-Goal: Design a system that read XML files then process the files before feeding the output to a reporting system.
+Goal: Design a system that read XML files then process the data before feeding the output to a reporting system.
 
 ## Constrains:
 * receive one record at a time
@@ -34,6 +34,8 @@ Goal: Design a system that read XML files then process the files before feeding 
 * Only accept upload from authorized endpoints
 * Only validated records will be included in output
 
+---
+
 ## Part I - describe and diagram overall system design
 1. validation/verification
     1. only authorized clients can upload XML files to their assigned AWS S3 Bucket
@@ -65,6 +67,8 @@ Goal: Design a system that read XML files then process the files before feeding 
 ```I have worked at an auditor at a reverse mortgage firm before, where I was responsible for processing and auditing loan documents in before inputting required info in an excel file. The excel file would then be sent to the broker at 4pm on business day. The process of designing this system had made me realize how my experience is so relatable to the design process of this system, and made me understand why the excel document I generated daily was needed. As a result, I believe processing the data at a certain time of the day instead of every time it is received will increase the performance on the system as it limits the amount of time the system has to process and read and write the data, restricting the amount of data in and out throughout the process, and this is why I chose AWS Batch service as they would process the data depends on the size of the data before assigning processing power and memory to run the job, as we do not know how many files will we receive per day except the maximum amount. Moreover, having the system to be run on cloud provides a solution with high availability, scalability, flexibility, stability, and accessibility for both the company and clients. The whole process is automated and can be done serverless with AWS cloud services, from client authentication to data processing. It is flexible and scalable because you can assign and adjust processing power according to the data volume. You can create different programs to run on specific files (e.g. single record vs batch record). You can also switch to processing the data whenever it is received anytime, by changing the setting in AWS Batch. You can also choose to have the processed files deleted automatically to save memory in storage.```
 
 ## Part II
+1. 📝 Instructions
+    1. Run XMLstaxValidator.java file
 1. describe the code used to parse and process the data
     1. Input xml file and xsd(schema for validation use) file in XMLstaxValidator.java
     1. Run XMLstaxValidator.java program which will compare the xml file with the schema
