@@ -33,6 +33,7 @@ Goal: Design a system that read XML files then process the data before feeding t
 * Duplicated records will be handled by reporting system
 * Only accept upload from authorized endpoints
 * Only validated records will be included in output
+* Batch file will be wrapped in <consumers> tag
 
 ---
 
